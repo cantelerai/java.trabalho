@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabalho Java</title>
+    <title>Par ou Ímpar</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h2>Verifique se o número é Par ou Ímpar</h2>
-        <input type="number" id="numero" placeholder="Digite um número">
+        <h1>Jogo de Par ou Ímpar</h1>
+        <div class="input-section">
+            <label for="num1">Digite o primeiro número:</label>
+            <input type="number" id="num1">
+            
+            <label for="num2">Digite o segundo número:</label>
+            <input type="number" id="num2">
+        </div>
         <button onclick="verificarParOuImpar()">Verificar</button>
-        <p id="resultado"></p>
+        <div id="resultado"></div>
     </div>
 
     <script src="script.js"></script>

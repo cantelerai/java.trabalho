@@ -1,53 +1,97 @@
-/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8; /* Cor de fundo suave */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    background-image: linear-gradient(to top right, #ff9a8b, #ff6a88, #ff2d91); /* Gradiente bonito */
 }
 
-/* Caixa principal */
 .container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Limita a largura máxima */
+    transition: transform 0.3s ease; /* Efeito ao passar o mouse */
 }
 
-/* Campo de entrada */
+.container:hover {
+    transform: translateY(-5px); /* Efeito de elevação */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #4e4e4e; /* Cor de texto suave */
+    font-weight: 600;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-section {
+    margin-bottom: 30px;
+}
+
 input {
-    width: 80%;
-    padding: 8px;
+    width: 100%;
+    padding: 12px;
     margin: 10px 0;
+    border-radius: 8px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
     font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
 }
 
-/* Botão */
+input:focus {
+    border-color: #ff2d91;
+    background-color: #fff7f9; /* Fundo suave quando focado */
+    outline: none;
+}
+
 button {
-    background-color: #8457ec;
+    padding: 12px 20px;
+    background-color: #ff2d91; /* Cor vibrante para o botão */
     color: white;
     border: none;
-    padding: 10px 20px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-    background-color: #9546ca;
+    background-color: #ff68a3;
+    transform: translateY(-3px); /* Efeito de botão ao passar o mouse */
 }
 
-/* Resultado */
-p {
-    font-size: 18px;
+button:active {
+    background-color: #ff2d91; /* Cor de fundo quando o botão é clicado */
+    transform: translateY(1px);
+}
+
+#resultado {
+    margin-top: 20px;
+    font-size: 22px;
     font-weight: bold;
-    margin-top: 10px;
+    color: #333;
+    text-align: center;
 }
 
+#resultado.par {
+    color: #4CAF50; /* Verde para resultado par */
+}
+
+#resultado.impar {
+    color: #FF5722; /* Laranja para resultado ímpar */
+}
