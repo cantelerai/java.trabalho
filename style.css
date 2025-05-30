@@ -4,46 +4,47 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3e5f5; /* Lilás claro */
 }
 
 .container {
   text-align: center;
-  background: white;
+  background: #ffffff;
   padding: 40px;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 20px rgba(155, 89, 182, 0.3); /* Sombra lilás */
 }
 
 #contador {
-  font-size: 48px;
-  margin-bottom: 20px;
-  color: #333;
+  font-size: 60px;
+  margin-bottom: 30px;
+  color: #7e57c2; /* Roxo mais escuro */
 }
 
 button {
   padding: 15px 30px;
-  font-size: 20px;
+  font-size: 18px;
+  margin: 10px;
   cursor: pointer;
   border: none;
-  color: white;
-  border-radius: 8px;
+  border-radius: 10px;
   transition: background-color 0.3s;
+  color: white;
 }
 
 #botaoClique {
-  background-color: #6f4eff;
+  background-color: #ba68c8;
 }
 
 #botaoClique:hover {
-  background-color: #8761c4;
+  background-color: #ab47bc;
 }
 
 #botaoReiniciar {
-  background-color: #7365f5;
+  background-color: #ce93d8;
 }
 
 #botaoReiniciar:hover {
-  background-color: #5d66da;
+  background-color: #b266c2;
 }

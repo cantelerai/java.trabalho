@@ -1,5 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
+// Espera o HTML carregar antes de executar
+document.addEventListener('DOMContentLoaded', () => {
   let contador = 0;
+
   const contadorElemento = document.getElementById('contador');
   const botaoClique = document.getElementById('botaoClique');
   const botaoReiniciar = document.getElementById('botaoReiniciar');
