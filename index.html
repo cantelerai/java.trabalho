@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <title>Contador de Cliques</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-
   <div class="container">
-    <div id="contador">0</div>
-    <button id="botaoClique">Clique aqui</button>
-    <button id="botaoReiniciar">Reiniciar</button>
+    <h1>Contador de Cliques</h1>
+    <div class="card">
+      <p>Cliques: <span id="contador">0</span></p>
+      <button onclick="incrementar()">Clique aqui</button>
+    </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
