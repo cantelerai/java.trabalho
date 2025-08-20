@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
+  background-color: #f8eafc; /* rosa claro */
   margin: 0;
   padding: 0;
 }
@@ -10,13 +10,14 @@ body {
   max-width: 500px;
   margin: 50px auto;
   padding: 20px;
-  background-color: #fff;
+  background-color: #f2e7ff; /* lilás suave */
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 h1, h2 {
   text-align: center;
+  color: #9b59b6; /* lilás escuro */
 }
 
 input, select {
@@ -24,13 +25,13 @@ input, select {
   padding: 10px;
   margin: 8px 0;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid #d1b3ff;
 }
 
 button {
   width: 100%;
   padding: 10px;
-  background-color: #4caf50;
+  background-color: #d18aff; /* lilás */
   color: white;
   font-weight: bold;
   border: none;
@@ -40,12 +41,13 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #b76fff; /* lilás mais escuro */
 }
 
 .event-card, .membro-card {
-  background-color: #f1f1f1;
+  background-color: #fbe6ff; /* rosa claro */
   padding: 12px;
   margin-bottom: 10px;
   border-radius: 8px;
+  border: 1px solid #e0b3ff;
 }

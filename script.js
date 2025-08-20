@@ -79,6 +79,38 @@ function addMembro() {
   }
 }
 
+// Adicionar evento com pregador
+function addEvento() {
+  const titulo = document.getElementById("evento-titulo").value;
+  const data = document.getElementById("evento-data").value;
+  const pregador = document.getElementById("evento-pregador").value;
+
+  if(titulo && data && pregador){
+    const novoEvento = { id: eventos.length + 1, titulo, data, pregador };
+    eventos.push(novoEvento);
+    renderEventos();
+    renderGrafico();
+    document.getElementById("evento-titulo").value = "";
+    document.getElementById("evento-data").value = "";
+    document.getElementById("evento-pregador").value = "";
+  } else {
+    alert("Preencha título, data e pregador!");
+  }
+}
+
+// Renderizar eventos atualizado
+function renderEventos() {
+  const eventList = document.getElementById("event-list");
+  eventList.innerHTML = "";
+  eventos.forEach(evento => {
+    const div = document.createElement("div");
+    div.className = "event-card";
+    div.innerHTML = `<strong>${evento.titulo}</strong><br>Data: ${evento.data}<br>Pregador: ${evento.pregador}`;
+    eventList.appendChild(div);
+  });
+}
+
+
 // Gráfico de Participação (Chart.js)
 function renderGrafico() {
   const ctx = document.getElementById('participacaoChart').getContext('2d');
