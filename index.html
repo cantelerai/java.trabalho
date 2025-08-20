@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assembleia de Deus</title>
+  <title>Igreja Assembleia</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Gráficos -->
 </head>
 <body>
   <div class="container">
@@ -14,7 +13,10 @@
     <div id="login-screen">
       <h1>Login</h1>
       <input type="text" id="username" placeholder="Usuário">
-      <input type="password" id="password" placeholder="Senha">
+      <select id="user-role">
+        <option value="membro">Membro</option>
+        <option value="lider">Líder</option>
+      </select>
       <button onclick="login()">Entrar</button>
     </div>
 
@@ -23,31 +25,32 @@
       <h1>📅 Próximos Eventos</h1>
       <div id="event-list"></div>
 
-      <h2>Adicionar Evento</h2>
-      <input type="text" id="evento-titulo" placeholder="Título do evento">
-      <input type="date" id="evento-data">
-      <input type="text" id="evento-pregador" placeholder="Nome do pregador">
-      <button onclick="addEvento()">Adicionar Evento</button>
+      <!-- Área de líder -->
+      <div id="admin-panel" style="display:none;">
+        <h2>Adicionar Evento</h2>
+        <input type="text" id="evento-titulo" placeholder="Título do evento">
+        <input type="date" id="evento-data">
+        <input type="text" id="evento-pregador" placeholder="Nome do pregador">
+        <button onclick="addEvento()">Adicionar Evento</button>
 
-      <h2>Membros / Líderes</h2>
-      <input type="text" id="membro-nome" placeholder="Nome do membro">
-      <select id="membro-tipo">
-        <option value="membro">Membro</option>
-        <option value="lider">Líder</option>
-      </select>
-      <button onclick="addMembro()">Adicionar Membro</button>
-      <div id="membro-list"></div>
+        <h2>Membros / Líderes</h2>
+        <input type="text" id="membro-nome" placeholder="Nome do membro">
+        <select id="membro-tipo">
+          <option value="membro">Membro</option>
+          <option value="lider">Líder</option>
+        </select>
+        <button onclick="addMembro()">Adicionar Membro</button>
+        <div id="membro-list"></div>
 
-      <h2>Escalas de Ministérios</h2>
-      <select id="ministro-membro">
-        <option value="">Selecione um membro</option>
-      </select>
-      <input type="text" id="ministro-tarefa" placeholder="Tarefa / Ministério">
-      <button onclick="addEscala()">Adicionar Escala</button>
-      <div id="escala-list"></div>
+        <h2>Escalas de Ministérios</h2>
+        <select id="ministro-membro">
+          <option value="">Selecione um membro</option>
+        </select>
+        <input type="text" id="ministro-tarefa" placeholder="Tarefa / Ministério">
+        <button onclick="addEscala()">Adicionar Escala</button>
+        <div id="escala-list"></div>
+      </div>
 
-      <h2>Gráfico de Participação</h2>
-      <canvas id="participacaoChart" width="400" height="200"></canvas>
     </div>
 
   </div>

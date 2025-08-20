@@ -11,21 +11,21 @@ let membros = [
 
 let escalas = [];
 
-// Login simples
-function login() {
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
+let currentUserRole = "membro";
 
-  if(username && password){
-    document.getElementById("login-screen").style.display = "none";
-    document.getElementById("dashboard").style.display = "block";
-    renderEventos();
-    renderMembros();
-    renderEscalas();
-    renderGrafico();
-  } else {
-    alert("Preencha usuário e senha!");
+// ===== Login =====
+function login() {
+  currentUserRole = document.getElementById("user-role").value;
+  document.getElementById("login-screen").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
+
+  if(currentUserRole === "lider"){
+    document.getElementById("admin-panel").style.display = "block";
   }
+
+  renderEventos();
+  renderMembros();
+  renderEscalas();
 }
 
 // ===== Eventos =====
@@ -49,16 +49,16 @@ function addEvento() {
     const novoEvento = { id: eventos.length + 1, titulo, data, pregador };
     eventos.push(novoEvento);
     renderEventos();
-    renderGrafico();
     document.getElementById("evento-titulo").value = "";
     document.getElementById("evento-data").value = "";
     document.getElementById("evento-pregador").value = "";
+    alert("Evento adicionado!");
   } else {
     alert("Preencha título, data e pregador!");
   }
 }
 
-// ===== Membros / Líderes =====
+// ===== Membros =====
 function renderMembros() {
   const membroList = document.getElementById("membro-list");
   const selectMembro = document.getElementById("ministro-membro");
@@ -66,13 +66,17 @@ function renderMembros() {
   selectMembro.innerHTML = '<option value="">Selecione um membro</option>';
 
   membros.forEach(m => {
-    const div = document.createElement("div");
+    // Para líder: mostrar botão de excluir
+    let div = document.createElement("div");
     div.className = "membro-card";
-    div.innerHTML = `${m.nome} - ${m.tipo} 
-      <button onclick="removeMembro(${m.id})" style="float:right; background-color:#ff7f7f;">Excluir</button>`;
+    if(currentUserRole === "lider"){
+      div.innerHTML = `${m.nome} - ${m.tipo} <button onclick="removeMembro(${m.id})" style="float:right; background-color:#ff7f7f;">Excluir</button>`;
+    } else {
+      div.innerHTML = `${m.nome} - ${m.tipo}`;
+    }
     membroList.appendChild(div);
 
-    // Adiciona no select de escalas
+    // Adicionar ao select de escalas
     const option = document.createElement("option");
     option.value = m.id;
     option.text = m.nome;
@@ -96,14 +100,12 @@ function addMembro() {
 
 function removeMembro(id) {
   membros = membros.filter(m => m.id !== id);
-  // Remove escalas do membro excluído
   escalas = escalas.filter(e => e.membroId !== id);
   renderMembros();
   renderEscalas();
-  renderGrafico();
 }
 
-// ===== Escalas de Ministérios =====
+// ===== Escalas =====
 function renderEscalas() {
   const escalaList = document.getElementById("escala-list");
   escalaList.innerHTML = "";
@@ -112,8 +114,11 @@ function renderEscalas() {
     if(membro){
       const div = document.createElement("div");
       div.className = "escala-card";
-      div.innerHTML = `${membro.nome} - ${e.tarefa} 
-        <button onclick="removeEscala(${e.id})" style="float:right; background-color:#ffb37f;">Remover</button>`;
+      if(currentUserRole === "lider"){
+        div.innerHTML = `${membro.nome} - ${e.tarefa} <button onclick="removeEscala(${e.id})" style="float:right; background-color:#ffb37f;">Remover</button>`;
+      } else {
+        div.innerHTML = `${membro.nome} - ${e.tarefa}`;
+      }
       escalaList.appendChild(div);
     }
   });
@@ -128,7 +133,7 @@ function addEscala() {
     escalas.push(novo);
     renderEscalas();
     document.getElementById("ministro-tarefa").value = "";
-    alert("Escala adicionada! ✅");
+    alert("Escala adicionada!");
   } else {
     alert("Selecione membro e insira a tarefa.");
   }
@@ -137,28 +142,4 @@ function addEscala() {
 function removeEscala(id) {
   escalas = escalas.filter(e => e.id !== id);
   renderEscalas();
-}
-
-// ===== Gráfico de Participação =====
-function renderGrafico() {
-  const ctx = document.getElementById('participacaoChart').getContext('2d');
-  const labels = eventos.map(e => e.titulo);
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'Participação em Eventos',
-      data: eventos.map(() => Math.floor(Math.random() * 50) + 10), // números aleatórios
-      backgroundColor: 'rgba(155, 89, 182, 0.5)',
-      borderColor: 'rgba(155, 89, 182, 1)',
-      borderWidth: 1
-    }]
-  };
-  const config = {
-    type: 'bar',
-    data: data,
-    options: { scales: { y: { beginAtZero: true } } }
-  };
-
-  if(window.participacaoChart instanceof Chart) window.participacaoChart.destroy();
-  window.participacaoChart = new Chart(ctx, config);
 }
