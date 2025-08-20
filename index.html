@@ -2,18 +2,35 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Contador de Cliques</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="estilo.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Igreja System</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Contador de Cliques</h1>
-    <div class="card">
-      <p>Cliques: <span id="contador">0</span></p>
-      <button onclick="incrementar()">Clique aqui</button>
+
+    <!-- Tela de Login -->
+    <div id="login-screen">
+      <h1>Login</h1>
+      <input type="text" id="username" placeholder="Usuário">
+      <input type="password" id="password" placeholder="Senha">
+      <button onclick="login()">Entrar</button>
     </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" style="display:none;">
+      <h1>📅 Próximos Eventos</h1>
+      
+      <div id="event-list"></div>
+      
+      <h2>Adicionar Evento</h2>
+      <input type="text" id="evento-titulo" placeholder="Título do evento">
+      <input type="date" id="evento-data">
+      <button onclick="addEvento()">Adicionar</button>
+    </div>
+
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
