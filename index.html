@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assembléia de Deus</title>
+  <title>Igreja System</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Para gráficos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Gráficos -->
 </head>
 <body>
   <div class="container">
@@ -37,6 +37,14 @@
       </select>
       <button onclick="addMembro()">Adicionar Membro</button>
       <div id="membro-list"></div>
+
+      <h2>Escalas de Ministérios</h2>
+      <select id="ministro-membro">
+        <option value="">Selecione um membro</option>
+      </select>
+      <input type="text" id="ministro-tarefa" placeholder="Tarefa / Ministério">
+      <button onclick="addEscala()">Adicionar Escala</button>
+      <div id="escala-list"></div>
 
       <h2>Gráfico de Participação</h2>
       <canvas id="participacaoChart" width="400" height="200"></canvas>

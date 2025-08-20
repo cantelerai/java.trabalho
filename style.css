@@ -44,7 +44,7 @@ button:hover {
   background-color: #b76fff; /* lilás mais escuro */
 }
 
-.event-card, .membro-card {
+.event-card, .membro-card, .escala-card {
   background-color: #fbe6ff; /* rosa claro */
   padding: 12px;
   margin-bottom: 10px;
