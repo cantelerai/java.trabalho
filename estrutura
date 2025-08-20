@@ -1,0 +1,27 @@
+igreja-system/
+ ├── backend/
+ │     ├── package.json
+ │     ├── server.js
+ │     └── routes/
+ │          └── api.js
+ ├── mobile/
+ │     ├── App.js
+ │     ├── package.json
+ │     └── src/
+ │          ├── screens/
+ │          │     ├── LoginScreen.js
+ │          │     ├── HomeScreen.js
+ │          │     ├── EventosScreen.js
+ │          │     └── PerfilScreen.js
+ │          └── components/
+ │                └── CardEvento.js
+ └── web/
+       ├── package.json
+       ├── src/
+       │     ├── App.js
+       │     ├── components/
+       │     │      └── CardEvento.js
+       │     └── pages/
+       │            ├── LoginPage.js
+       │            ├── DashboardPage.js
+       │            └── EventosPage.js
