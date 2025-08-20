@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Igreja System</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Para gráficos -->
 </head>
 <body>
   <div class="container">
@@ -20,13 +21,24 @@
     <!-- Dashboard -->
     <div id="dashboard" style="display:none;">
       <h1>📅 Próximos Eventos</h1>
-      
       <div id="event-list"></div>
-      
+
       <h2>Adicionar Evento</h2>
       <input type="text" id="evento-titulo" placeholder="Título do evento">
       <input type="date" id="evento-data">
-      <button onclick="addEvento()">Adicionar</button>
+      <button onclick="addEvento()">Adicionar Evento</button>
+
+      <h2>Membros / Líderes</h2>
+      <input type="text" id="membro-nome" placeholder="Nome do membro">
+      <select id="membro-tipo">
+        <option value="membro">Membro</option>
+        <option value="lider">Líder</option>
+      </select>
+      <button onclick="addMembro()">Adicionar Membro</button>
+      <div id="membro-list"></div>
+
+      <h2>Gráfico de Participação</h2>
+      <canvas id="participacaoChart" width="400" height="200"></canvas>
     </div>
 
   </div>
