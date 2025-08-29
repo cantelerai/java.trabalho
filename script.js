@@ -7,7 +7,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
 
   // exemplo de credenciais
   let usuarioCorreto = "Raiany";
-  let senhaCorreta = "29/08/2007";
+  let senhaCorreta = "12/08/2008";
 
   if (usuario === usuarioCorreto && senha === senhaCorreta) {
     mensagem.style.color = "green";
